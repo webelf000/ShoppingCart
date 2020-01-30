@@ -16,9 +16,6 @@ class ItemList extends React.Component {
 
     render() {
         return (
-            /*<Repeat numTimes="3">
-                {(idx) => <ItemRow itemnum={idx} itemname={item[idx].itemname} value={item[idx].value} onCheck={this.onCheck} />}
-            </Repeat>*/
             <Repeat onCheck={this.onCheck} />
         );
     }
