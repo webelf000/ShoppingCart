@@ -34,7 +34,7 @@ class Repeat extends React.Component {
     
     render() {
         let items = [];
-        items = item.map((itemset, idx) => <ItemRow itemnum={idx} itemname={itemset.itemname} value={itemset.value} onCheck={this.onCheck} />);
+        items = item.map((itemset, idx) => <ItemRow key={idx} itemnum={idx} itemname={itemset.itemname} value={itemset.value} onCheck={this.onCheck} />);
         return <div>{items}</div>;
     }
 }

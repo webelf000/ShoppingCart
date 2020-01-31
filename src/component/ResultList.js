@@ -5,10 +5,6 @@ import '../index.css';
 const item = [{itemname: "Bread", value: 30}, {itemname: "Butter", value: 40}, {itemname: "Meat", value: 50}];
 
 class ResultList extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div>
@@ -35,7 +31,7 @@ class ResultList extends React.Component {
 function Repeat(props) {
     let items = [];
 
-    items = item.map((itemset, idx) => props.result[idx].itemcount > 0 && <ResultRow itemnum={idx} itemcount={props.result[idx].itemcount} />);
+    items = item.map((itemset, idx) => props.result[idx].itemcount > 0 && <ResultRow key={idx} itemnum={idx} itemcount={props.result[idx].itemcount} />);
 
     return <div>{items}</div>;
 }

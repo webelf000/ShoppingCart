@@ -3,10 +3,6 @@ import React from 'react';
 const item = [{itemname: "Bread", value: 30}, {itemname: "Butter", value: 40}, {itemname: "Meat", value: 50}];
 
 class ResultRow extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div className="clearfix">
