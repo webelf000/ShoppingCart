@@ -2,49 +2,26 @@ import React from 'react';
 import '../index.css';
 
 class ItemRow extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            itemname : props.itemname,
-            value : props.value,
-            leftcount : 20,
-        };
-
-        this.handleCheck = this.handleCheck.bind(this);
-        this.handleFill = this.handleFill.bind(this);
-    }
-
-    handleCheck(itemnum) {
-        if (this.state.leftcount > 0)
-        {
-            this.setState((state) => ({leftcount : state.leftcount - 1}));
-            this.props.onCheck(itemnum);
-        }
-    }
-
-    handleFill() {
-        this.setState({leftcount : 20});
-    }
-
     render() {
+        const {check, fill} = this.props;
         return (
             <div className="clearfix">
                 <div className="float-left item">
-                    {this.props.itemname}
+                    {this.props.itemlist[this.props.key].itemname}
                 </div>
                 <div className="float-left item">
-                    $ {this.state.value}
+                    $ {this.props.itemlist[this.props.key].value}
                 </div>
                 <div className="float-left item">
-                    {this.state.leftcount}
+                    {this.props.itemlist[this.props.key].leftcount}
                 </div>
                 <div className="float-left item">
-                    <button onClick={() => this.handleCheck(this.props.itemnum)}>
+                    <button onClick={() => check(this.props.key)}>
                         Check
                     </button>
                 </div>
                 <div className="float-left item">
-                    <button onClick={this.handleFill}>
+                    <button onClick={() => fill(this.props.key)}>
                         Fill
                     </button>
                 </div>

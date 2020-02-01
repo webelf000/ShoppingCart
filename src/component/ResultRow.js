@@ -1,22 +1,20 @@
 import React from 'react';
 
-const item = [{itemname: "Bread", value: 30}, {itemname: "Butter", value: 40}, {itemname: "Meat", value: 50}];
-
 class ResultRow extends React.Component {
     render() {
         return (
             <div className="clearfix">
                 <div className="float-left item">
-                    {item[this.props.itemnum].itemname}
+                    {this.props.itemlist[this.props.key].itemname}
                 </div>
                 <div className="float-left item">
-                    $ {item[this.props.itemnum].value}
+                    $ {this.props.itemlist[this.props.key].value}
                 </div>
                 <div className="float-left item">
-                    {this.props.itemcount}
+                    {this.props.product[this.props.key].itemcount}
                 </div>
                 <div className="float-left item">
-                    $ {item[this.props.itemnum].value * this.props.itemcount}
+                    $ {this.props.itemlist[this.props.key].value * this.props.product[this.props.key].itemcount}
                 </div>
             </div>
         );

@@ -1,8 +1,7 @@
 import React from 'react';
 import ResultRow from './ResultRow';
+import {connect} from 'react-redux';
 import '../index.css';
-
-const item = [{itemname: "Bread", value: 30}, {itemname: "Butter", value: 40}, {itemname: "Meat", value: 50}];
 
 class ResultList extends React.Component {
     render() {
@@ -28,12 +27,24 @@ class ResultList extends React.Component {
     }
 }
 
-function Repeat(props) {
-    let items = [];
-
-    items = item.map((itemset, idx) => props.result[idx].itemcount > 0 && <ResultRow key={idx} itemnum={idx} itemcount={props.result[idx].itemcount} />);
-
-    return <div>{items}</div>;
+class Repeat extends React.Component {
+    render(){
+        let items = [];
+        items = this.props.itemlist.map(
+            (itemset, idx) => this.props.resultlist[idx].leftcount > 0 &&
+                <ResultRow key={idx} />
+            );
+        return <div>{items}</div>;
+    }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        ...state
+    }
+}
+
+ResultList = connect(mapStateToProps)(Repeat);
+ResultList = connect(mapStateToProps)(ResultRow);
 
 export default ResultList;

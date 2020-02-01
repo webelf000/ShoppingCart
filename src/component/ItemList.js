@@ -1,42 +1,40 @@
 import React from 'react';
 import ItemRow from './ItemRow';
-
-const item = [{itemname: "Bread", value: 30}, {itemname: "Butter", value: 40}, {itemname: "Meat", value: 50}];
+import { connect } from 'react-redux';
+import {check, fill} from '../redux/actions'
 
 class ItemList extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.onCheck = this.onCheck.bind(this);
-    }
-
-    onCheck(itemnum) {
-        this.props.onCheck(itemnum);
-    }
-
     render() {
         return (
-            <Repeat onCheck={this.onCheck} />
+            <Repeat />
         );
     }
 }
 
 class Repeat extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.onCheck = this.onCheck.bind(this);
-    }
-
-    onCheck(itemnum) {
-        this.props.onCheck(itemnum);
-    }
-    
     render() {
         let items = [];
-        items = item.map((itemset, idx) => <ItemRow key={idx} itemnum={idx} itemname={itemset.itemname} value={itemset.value} onCheck={this.onCheck} />);
+        items = this.props.itemlist.map(
+            (itemset, idx) => <ItemRow key={idx} />
+            );
         return <div>{items}</div>;
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        ...state
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        check : () => dispatch(check),
+        fill : () => dispatch(fill)
+    }
+}
+
+ItemList = connect(mapStateToProps)(Repeat);
+Repeat = connect(mapStateToProps, mapDispatchToProps)(ItemRow);
 
 export default ItemList;
