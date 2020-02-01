@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import '../index.css';
 
 class TotalRow extends React.Component {
@@ -11,5 +12,13 @@ class TotalRow extends React.Component {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        ...state
+    }
+}
+
+TotalRow = connect(mapStateToProps)(TotalRow);
 
 export default TotalRow;

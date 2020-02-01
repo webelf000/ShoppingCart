@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class ResultRow extends React.Component {
     render() {
@@ -20,5 +21,13 @@ class ResultRow extends React.Component {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        ...state
+    }
+}
+
+ResultRow = connect(mapStateToProps)(ResultRow);
 
 export default ResultRow;

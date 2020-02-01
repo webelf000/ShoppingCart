@@ -1,6 +1,6 @@
 import React from 'react';
 import ResultRow from './ResultRow';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import '../index.css';
 
 class ResultList extends React.Component {
@@ -44,7 +44,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-Repeat = connect(mapStateToProps)(ResultRow);
-ResultList = connect(mapStateToProps)(Repeat);
+ResultList = connect(mapStateToProps)(ResultList);
 
 export default ResultList;

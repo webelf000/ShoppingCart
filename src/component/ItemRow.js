@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { check, fill } from '../redux/actions';
 import '../index.css';
 
 class ItemRow extends React.Component {
@@ -29,5 +31,20 @@ class ItemRow extends React.Component {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        ...state
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        check : () => dispatch(check()),
+        fill : () => dispatch(fill())
+    }
+}
+
+ItemRow = connect(mapStateToProps, mapDispatchToProps)(ItemRow);
 
 export default ItemRow;
