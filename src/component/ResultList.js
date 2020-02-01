@@ -28,7 +28,7 @@ class ResultList extends React.Component {
 }
 
 class Repeat extends React.Component {
-    render(){
+    render() {
         let items = [];
         items = this.props.itemlist.map(
             (itemset, idx) => this.props.resultlist[idx].leftcount > 0 &&
@@ -44,7 +44,7 @@ const mapStateToProps = (state) => {
     }
 }
 
+Repeat = connect(mapStateToProps)(ResultRow);
 ResultList = connect(mapStateToProps)(Repeat);
-ResultList = connect(mapStateToProps)(ResultRow);
 
 export default ResultList;

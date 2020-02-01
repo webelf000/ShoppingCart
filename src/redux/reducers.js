@@ -1,4 +1,4 @@
-function rootReducer(state='INITIALIZE', action) {
+function rootReducer(state={}, action) {
     switch (action.type) {
         case 'INITIALIZE':
             const itemlist = [

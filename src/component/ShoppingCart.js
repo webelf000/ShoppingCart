@@ -5,12 +5,6 @@ import ResultList from './ResultList';
 import TotalRow from './TotalRow';
 
 class ShoppingCart extends React.Component {
-    constructor(props) {
-        super(props);
-        const { initState } = this.props;
-        console.log(initState);
-    }
-
     render() {
         return (
             <div>
@@ -31,6 +25,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-connect(mapStateToProps)(TotalRow);
+ShoppingCart = connect(mapStateToProps)(TotalRow);
 
 export default ShoppingCart;

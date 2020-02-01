@@ -1,7 +1,7 @@
 import React from 'react';
 import ItemRow from './ItemRow';
 import { connect } from 'react-redux';
-import {check, fill} from '../redux/actions'
+import { check, fill} from '../redux/actions'
 
 class ItemList extends React.Component {
     render() {
@@ -12,6 +12,7 @@ class ItemList extends React.Component {
 }
 
 class Repeat extends React.Component {
+
     render() {
         let items = [];
         items = this.props.itemlist.map(
@@ -21,7 +22,7 @@ class Repeat extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         ...state
     }
@@ -34,7 +35,7 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-ItemList = connect(mapStateToProps)(Repeat);
 Repeat = connect(mapStateToProps, mapDispatchToProps)(ItemRow);
+ItemList = connect(mapStateToProps)(Repeat);
 
 export default ItemList;
