@@ -1,9 +1,3 @@
-export function initState() {
-    return {
-        type : 'INITIALIZE'
-    }
-}
-
 export function check(index) {
     return {
         type : 'CHECK',

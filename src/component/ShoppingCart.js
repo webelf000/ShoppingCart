@@ -2,13 +2,8 @@ import React from 'react';
 import ItemList from './ItemList';
 import ResultList from './ResultList';
 import TotalRow from './TotalRow';
-import { connect } from 'react-redux';
 
 class ShoppingCart extends React.Component {
-    constructor(props) {
-        super(props);
-        console.log(props);
-    }
     render() {
         return (
             <div>
@@ -22,13 +17,5 @@ class ShoppingCart extends React.Component {
         );
     }
 }
-
-const mapStateToProps = (state) => {
-    return {
-        ...state
-    }
-}
-
-ShoppingCart = connect(mapStateToProps)(ShoppingCart);
 
 export default ShoppingCart;

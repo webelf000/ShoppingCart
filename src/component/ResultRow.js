@@ -6,16 +6,16 @@ class ResultRow extends React.Component {
         return (
             <div className="clearfix">
                 <div className="float-left item">
-                    {this.props.itemlist[this.props.key].itemname}
+                    {this.props.itemlist[this.props.itemnum].itemname}
                 </div>
                 <div className="float-left item">
-                    $ {this.props.itemlist[this.props.key].value}
+                    $ {this.props.itemlist[this.props.itemnum].value}
                 </div>
                 <div className="float-left item">
-                    {this.props.product[this.props.key].itemcount}
+                    {this.props.resultlist[this.props.itemnum].itemcount}
                 </div>
                 <div className="float-left item">
-                    $ {this.props.itemlist[this.props.key].value * this.props.product[this.props.key].itemcount}
+                    $ {this.props.itemlist[this.props.itemnum].value * this.props.resultlist[this.props.itemnum].itemcount}
                 </div>
             </div>
         );

@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { check, fill } from '../redux/actions';
 import '../index.css';
+import { connect } from 'react-redux';
+import { check, fill} from '../redux/actions';
 
 class ItemRow extends React.Component {
     render() {
@@ -9,21 +9,21 @@ class ItemRow extends React.Component {
         return (
             <div className="clearfix">
                 <div className="float-left item">
-                    {this.props.itemlist[this.props.key].itemname}
+                    {this.props.itemlist[this.props.itemnum].itemname}
                 </div>
                 <div className="float-left item">
-                    $ {this.props.itemlist[this.props.key].value}
+                    $ {this.props.itemlist[this.props.itemnum].value}
                 </div>
                 <div className="float-left item">
-                    {this.props.itemlist[this.props.key].leftcount}
+                    {this.props.itemlist[this.props.itemnum].leftcount}
                 </div>
                 <div className="float-left item">
-                    <button onClick={() => check(this.props.key)}>
+                    <button onClick={() => check(this.props.itemnum)}>
                         Check
                     </button>
                 </div>
                 <div className="float-left item">
-                    <button onClick={() => fill(this.props.key)}>
+                    <button onClick={() => fill(this.props.itemnum)}>
                         Fill
                     </button>
                 </div>
@@ -40,8 +40,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        check : () => dispatch(check()),
-        fill : () => dispatch(fill())
+        check : (itemnum) => { dispatch(check(itemnum))},
+        fill : (itemnum) => { dispatch(fill(itemnum))}
     }
 }
 

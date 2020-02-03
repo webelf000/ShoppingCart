@@ -1,6 +1,6 @@
 import React from 'react';
 import ResultRow from './ResultRow';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import '../index.css';
 
 class ResultList extends React.Component {
@@ -21,18 +21,19 @@ class ResultList extends React.Component {
                         Total
                     </div>
                 </div>
-                <Repeat result={this.props.result} />
+                <Repeat />
             </div>
         );
     }
 }
 
 class Repeat extends React.Component {
+
     render() {
         let items = [];
         items = this.props.itemlist.map(
-            (itemset, idx) => this.props.resultlist[idx].leftcount > 0 &&
-                <ResultRow key={idx} />
+            (itemset, idx) => this.props.resultlist[idx].itemcount > 0 &&
+                <ResultRow key={idx} itemnum={idx} />
             );
         return <div>{items}</div>;
     }
@@ -44,6 +45,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-ResultList = connect(mapStateToProps)(ResultList);
+Repeat = connect(mapStateToProps)(Repeat);
 
 export default ResultList;

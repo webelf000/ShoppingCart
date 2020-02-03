@@ -1,6 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import '../index.css';
+import { connect } from 'react-redux';
 
 class TotalRow extends React.Component {
     
